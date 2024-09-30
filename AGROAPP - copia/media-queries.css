@@ -1,0 +1,22 @@
+@media (max-width: 90px) {
+    .blogs-main-new {
+        grid-template-columns: 1fr;
+        grid-template-rows: 3fr;
+    }
+    .blogs-news-img-countainer {
+        grid-row: 2;
+    }
+    .blogs-news-info-countainer {
+        grid-column: 1;
+        grid-row: 4;
+    }
+    .blogs-post-countainer .post-countainer {
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .blogs-post-countainer .post-countainer {
+        max-width: 95%;
+    }
+}

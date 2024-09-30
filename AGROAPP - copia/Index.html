@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Pedidos y Ventas Agroindustria</title>
+
+</head>
+
+<body>
+    <header>
+        DE AGROINDUSTRIA
+    </header>
+    <div class="navbar">
+        <a href="#" onclick="showPage('inicio')">Inicio</a>
+        <a href="#" onclick="showPage('quienes-somos')">Quienes Somos</a>
+        <a href="#" onclick="showPage('catalogo-productos')">Catálogo de Productos</a>
+        <a href="#" onclick="showPage('pague-aqui')">Pague Aquí</a>
+        <a href="#" onclick="showPage('mi-factura')">Mi Factura</a>
+        <a href="#" onclick="showPage('inscripciones')">Inscripciones</a>
+    </div>
+
+    <div id="inicio" class="page active">
+        <h1>Inicio</h1>
+        <div class="content">
+            <img src="images/INICIO.png" alt="Imagen de Inicio">
+        </div>
+    </div>
+    <div id="quienes-somos" class="page">
+        <h1>Quienes Somos</h1>
+        <div class="content">
+            <img src="./images/iniciofoto1.png" alt="Imagen de Quienes Somos">
+        </div>
+    </div>
+    <div id="catalogo-productos" class="page">
+        <h1>Catálogo de Productos</h1>
+        <div class="content">
+            <img src="./images/quienes-somos.jpg" alt="Imagen de Catálogo de Productos">
+        </div>
+    </div>
+    <div id="pague-aqui" class="page">
+        <h1>Pague Aquí</h1>
+        <div class="content">
+            <img src="./images/pague_aqui.png" alt="Imagen de Pague Aquí">
+        </div>
+    </div>
+    <div id="mi-factura" class="page">
+        <h1>Mi Factura</h1>
+        <div class="content">
+            <img src="./images/factura.png" alt="Imagen de Mi Factura">
+        </div>
+    </div>
+    <div id="inscripciones" class="page">
+        <h1>Inscripciones</h1>
+        <form id="inscripcionForm">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Ingresa tu usuario">
+            <br>
+            <label for="contrasena">Contraseña:</label>
+            <input type="password" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña">
+            <br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingresa tu nombre">
+            <br>
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Ingresa tu apellido">
+            <br>
+            <label for="cedula">Cédula:</label>
+            <input type="text" id="cedula" name="cedula" placeholder="Ingresa tu número de cédula">
+            <br>
+            <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fechaNacimiento" name="fechaNacimiento">
+            <br>
+            <button type="button" onclick="registrar()">Registrarse</button>
+        </form>
+        <div id="inscritos">
+            <h2>Personas Inscritas</h2>
+            <ul id="listaInscritos"></ul>
+        </div>
+    </div>
+
+    <div class="banner">
+        ¿Necesitas ayuda?
+    </div>
+    <footer>
+        © ¡Soy Increíble! ¡Estoy aprendiendo! 2024 Agroindustria SA
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => {
+                page.classList.remove('active');
+                page.style.opacity = 0;
+            });
+            const activePage = document.getElementById(pageId);
+            activePage.classList.add('active');
+            setTimeout(() => {
+                activePage.style.opacity = 1;
+            }, 50);
+        }
+
+        function registrar() {
+            const usuario = document.getElementById('usuario').value;
+            const contrasena = document.getElementById('contrasena').value;
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const cedula = document.getElementById('cedula').value;
+            const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+
+            const listaInscritos = document.getElementById('listaInscritos');
+            const nuevoInscrito = document.createElement('li');
+            nuevoInscrito.textContent = `Usuario: ${usuario}, Nombre: ${nombre} ${apellido}, Cédula: ${cedula}, Fecha de Nacimiento: ${fechaNacimiento}`;
+            listaInscritos.appendChild(nuevoInscrito);
+
+            document.getElementById('inscripcionForm').reset();
+        }
+    </script>
+</body>
+
+</html>
